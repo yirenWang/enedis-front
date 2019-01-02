@@ -63,7 +63,7 @@ export default class ProfileScreen extends React.Component {
               icon: "home"
             });
           });
-
+          // this.setState({ contractData: [], res: data.contracts });
           const contractData = data.contracts.map((c, i) => {
             return [
               {
@@ -80,34 +80,39 @@ export default class ProfileScreen extends React.Component {
               },
               {
                 label: `Contract segment ${i !== 0 ? i : ""}`,
-                value: c.contracts.segment
+                value: c.usage_point.contracts.segment
               },
               {
                 label: `Contract subscribed power ${i !== 0 ? i : ""}`,
-                value: c.contracts.subscribed_power
+                value: c.usage_point.contracts.subscribed_power
               },
               {
                 label: `Contract last activation date ${i !== 0 ? i : ""}`,
-                value: c.contracts.last_activation_date
+                value: c.usage_point.contracts.last_activation_date
               },
               {
                 label: `Contract distribution tariff ${i !== 0 ? i : ""}`,
-                value: c.contracts.distribution_tariff
+                value: c.usage_point.contracts.distribution_tariff
               },
               {
                 label: `Contract distribution tariff change date ${
                   i !== 0 ? i : ""
                 }`,
-                value: c.contracts.last_distribution_tariff_change_date
+                value:
+                  c.usage_point.contracts.last_distribution_tariff_change_date
               }
             ];
           });
-          this.setState({ personalData, contractData });
+          this.setState({
+            personalData,
+            contractData,
+            res: data.contracts
+          });
         } else {
           throw new Error("No data from back");
         }
       })
-      .catch(e => console.log(e));
+      .catch(e => this.setState({ e }));
   }
 
   renderContractData = contract => {
@@ -130,6 +135,7 @@ export default class ProfileScreen extends React.Component {
   render() {
     return (
       <ScrollView>
+        <Text>{JSON.stringify(this.state)}</Text>
         <List>
           {this.state.personalData.map((item, i) => (
             <ListItem
