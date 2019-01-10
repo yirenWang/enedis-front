@@ -15,13 +15,14 @@ import ProfileScreen from "./screens/profileScreen";
 import DataScreen from "./screens/dataScreen";
 import DataListScreen from "./screens/dataListScreen";
 
+// Associate the different screens to the different routes
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen, // Screen to click on connect
     Connect: ConnectionScreen, // Webview to login with enedis
     Profile: ProfileScreen, // Overview of details of client (name and address)
-    Data: DataScreen, //
-    DataList: DataListScreen //
+    Data: DataScreen, // Shows the data graphs
+    DataList: DataListScreen // List of possible graphs
   },
   {
     initialRouteName: "Home"
@@ -33,31 +34,3 @@ export default class App extends Component {
     return <RootStack />;
   }
 }
-
-{
-  /* <View style={styles.container}>
-<Text style={styles.welcome}>Welcome to React Native!</Text>
-<Text style={styles.instructions}>To get started, edit App.js</Text>
-<Text style={styles.instructions}>{instructions}</Text>
-<ConnectComponent />
-</View> */
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
