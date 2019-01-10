@@ -4,6 +4,7 @@ import { List, ListItem } from "react-native-elements";
 import LogOutButton from "../components/logOutButton";
 import ProfileButton from "../components/profileButton";
 
+// List the different types of data that can be shown
 export default class DataListScreen extends React.Component {
   static navigationOptions = {
     title: "Mes Données"

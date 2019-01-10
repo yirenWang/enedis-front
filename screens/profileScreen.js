@@ -13,6 +13,7 @@ import { List, ListItem } from "react-native-elements";
 import { backURL } from "../config";
 import axios from "axios";
 
+// Show user data
 export default class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +64,6 @@ export default class ProfileScreen extends React.Component {
               icon: "home"
             });
           });
-          // this.setState({ contractData: [], res: data.contracts });
           const contractData = data.contracts.map((c, i) => {
             return [
               {
@@ -135,7 +135,6 @@ export default class ProfileScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-        <Text>{JSON.stringify(this.state)}</Text>
         <List>
           {this.state.personalData.map((item, i) => (
             <ListItem

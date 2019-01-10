@@ -8,6 +8,7 @@ import {
   AsyncStorage
 } from "react-native";
 
+// Home screen that asks user to connect
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);

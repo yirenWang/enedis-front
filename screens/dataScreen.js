@@ -10,6 +10,8 @@ import {
 import axios from "axios";
 
 import { backURL } from "../config";
+
+// Graphs for each different type of data
 export default class DataScreen extends Component {
   constructor(props) {
     super(props);
